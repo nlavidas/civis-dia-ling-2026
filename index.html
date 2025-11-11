@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIVIS: Diachronic Linguistics in the 21st Century</title>
+    <meta name="description" content="CIVIS Blended Learning Course combining online Spring School and intensive Summer School in Naxos, Greece. April-July 2025.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6A1B9A;
+            --primary-light: #9C27B0;
+            --accent: #E91E63;
+            --civis-blue: #0066CC;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f3e5f5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+        }
+
+        .hero .civis-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero .dates {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero .apply-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero .apply-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Alert Banner */
+        .alert {
+            background: #FFF3CD;
+            border-left: 4px solid #FF9800;
+            padding: 1.5rem 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 8px;
+        }
+
+        .alert strong {
+            color: #E65100;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 2px solid var(--accent);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .info-card p {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Program Components */
+        .program-components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .component {
+            background: white;
+            border: 2px solid var(--primary-light);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .component-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .component h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Eligibility Box */
+        .eligibility-box {
+            background: linear-gradient(135deg, #e8eaf6 0%, var(--bg-light) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .eligibility-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .eligibility-box li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .eligibility-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-section .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="civis-badge">🇪🇺 CIVIS European University</div>
+        <h1>Diachronic Linguistics<br>in the 21st Century</h1>
+        <div class="subtitle">Blended Learning Course | 5th Edition</div>
+        <div class="dates">📅 April 7 - July 25, 2025</div>
+        <a href="https://mobility.civis.eu/templates/66d6b5539a52af7f3c7784d6/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=66e321443b5d007343274fe6" class="apply-btn" target="_blank">APPLY NOW</a>
+    </section>
+
+    <!-- Alert -->
+    <div class="alert">
+        <strong>Application Deadline:</strong> October 31, 2024 | <strong>Selected students</strong> will receive grants for physical mobility to Greece!
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">About the Program</h2>
+            <div class="section-content">
+                <p>
+                    <strong>Diachronic Linguistics in the 21st Century</strong> is a comprehensive blended-learning programme 
+                    combining online and face-to-face instruction. This CIVIS course brings together students from across 
+                    Europe for an intensive study of historical linguistics, ancient languages, and modern computational methods.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    The program consists of an online Spring School in April, continuous online workshops, and culminates in 
+                    an intensive 40-hour face-to-face Summer School on the beautiful island of Naxos, Greece in July 2025.
+                </p>
+            </div>
+        </section>
+
+        <!-- Program Components -->
+        <div class="program-components">
+            <div class="component">
+                <div class="component-icon">🌱</div>
+                <h3>Spring School</h3>
+                <p>Intensive online classes<br>April 2025</p>
+            </div>
+            <div class="component">
+                <div class="component-icon">💻</div>
+                <h3>Online Workshops</h3>
+                <p>Continuous learning<br>April-July 2025</p>
+            </div>
+            <div class="component">
+                <div class="component-icon">🏝️</div>
+                <h3>Summer School</h3>
+                <p>40 hours face-to-face<br>Naxos, Greece | July 2025</p>
+            </div>
+        </div>
+
+        <!-- Key Information -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎓 Target Audience</h3>
+                <p>Open to advanced <strong>Bachelor's, Master's, and PhD students</strong> at CIVIS member universities with previous knowledge in:</p>
+                <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                    <li>Humanities</li>
+                    <li>Linguistics</li>
+                    <li>Languages</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>💰 Mobility Grant</h3>
+                <p><strong>Selected students will be supported by a grant</strong> for physical mobility to Greece during the Summer School component.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">Erasmus+ funding available</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🇪🇺 CIVIS Network</h3>
+                <p>Part of the <strong>CIVIS European Civic University</strong> alliance bringing together leading universities across Europe.</p>
+                <p style="margin-top: 0.5rem;"><a href="https://civis.eu/" target="_blank" style="color: var(--primary);">Learn about CIVIS →</a></p>
+            </div>
+        </div>
+
+        <!-- Eligibility -->
+        <section class="section">
+            <div class="eligibility-box">
+                <h2 class="section-title">Eligibility Requirements</h2>
+                <ul>
+                    <li>Must be a fully enrolled student at a CIVIS member university</li>
+                    <li>Enrollment must be current during the programme dates (April-July 2025)</li>
+                    <li>Previous knowledge in Humanities, Linguistics, or Languages required</li>
+                    <li>Advanced Bachelor's, Master's, or PhD level</li>
+                </ul>
+                <p style="margin-top: 2rem; text-align: center;">
+                    <a href="https://civis.eu/en/learn/course-types/blended-intensive-programmes/" target="_blank" 
+                       style="color: var(--primary); font-weight: 600; text-decoration: underline;">
+                        Learn more about eligibility criteria →
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Previous Editions -->
+        <section class="section">
+            <h2 class="section-title">Program History</h2>
+            <div class="section-content">
+                <p>
+                    This is the <strong>5th edition</strong> of our successful CIVIS Blended Learning Course. 
+                    Previous editions have welcomed students from across the CIVIS network and beyond, creating a vibrant 
+                    international community of scholars interested in diachronic linguistics.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://conferences.uoa.gr/event/92/page/715-previous-years" target="_blank" 
+                       style="color: var(--primary); font-weight: 600;">
+                        View previous years →
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Integration with Naxos -->
+        <section class="section">
+            <h2 class="section-title">Summer School in Naxos</h2>
+            <div class="section-content">
+                <p>
+                    The face-to-face component takes place during the <strong>10th Naxos Summer School on Diachronic Linguistics</strong>, 
+                    offering an intensive and immersive experience on the beautiful Greek island of Naxos.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Students will benefit from 40 hours of in-person instruction, workshops, networking opportunities, 
+                    and the unique cultural experience of studying in the Cyclades.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://nlavidas.github.io/naxos-summer-school-2025/" target="_blank" 
+                       style="color: var(--primary); font-weight: 600;">
+                        Learn about the Naxos Summer School →
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Join the CIVIS Community!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">
+                Applications open for the 5th edition of this transformative programme
+            </p>
+            <a href="https://mobility.civis.eu/templates/66d6b5539a52af7f3c7784d6/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=66e321443b5d007343274fe6" 
+               class="cta-btn" target="_blank">SUBMIT YOUR APPLICATION</a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+                Deadline: October 31, 2024
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <section class="section">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="section-content">
+                <p><strong>Course Coordinator:</strong> Prof. Nikolaos Lavidas</p>
+                <p><strong>Institution:</strong> National and Kapodistrian University of Athens</p>
+                <p><strong>Email:</strong> <a href="mailto:nlavidas@enl.uoa.gr" style="color: var(--primary);">nlavidas@enl.uoa.gr</a></p>
+                <p style="margin-top: 1.5rem;">
+                    <a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century" 
+                       style="color: var(--primary); font-weight: 600;" target="_blank">
+                        Official CIVIS Course Page →
+                    </a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CIVIS European Civic University | National and Kapodistrian University of Athens</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://conferences.uoa.gr/event/92/" target="_blank">Official Conference Page</a> | 
+            <a href="https://civis.eu/" target="_blank">CIVIS Network</a> | 
+            <a href="https://athdgc.github.io/" target="_blank">AthDGC Research</a>
+        </p>
+    </footer>
+</body>
+</html>
